@@ -1,1 +1,1 @@
-# quiz-tool
+# QuizTool
