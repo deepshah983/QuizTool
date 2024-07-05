@@ -3,22 +3,21 @@ import { connection }  from './db/connection.js';
 import 'dotenv/config';
 import userRoutes from './routes/user.route.js';
 
-
-// require('dotenv').config()
+import { positionRoute } from './routes/position.route.js'
 
 const app = express();
 app.use(express.json());
 
 
-const port = process.env.PORT || 3000;
+app.use(express.json())
 
 app.use('/api/users', userRoutes);
 
-app.get("/",(req,res)=>{
-    res.status(200).json({
-        msg:"Ok"
-    })
-})
+app.use('/api',positionRoute)
+
+const port = process.env.PORT || 5000
+
+
 
 app.listen(port,()=>{
     console.log(`Project run on this port ${port}`)
