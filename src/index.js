@@ -1,10 +1,12 @@
-import express from 'express'
+import express from 'express';
+import { connection }  from './db/connection.js';
+import 'dotenv/config';
 
 // require('dotenv').config()
 
 const app = express()
 
-const port = 4000
+const port = process.env.PORT || 3000;
 
 app.get("/",(req,res)=>{
     res.status(200).json({
@@ -12,6 +14,6 @@ app.get("/",(req,res)=>{
     })
 })
 
-app.listen(4000,()=>{
+app.listen(port,()=>{
     console.log(`Project run on this port ${port}`)
 })
