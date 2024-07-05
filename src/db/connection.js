@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
+import 'dotenv/config';
 
-const connection = mongoose.connect("mongodb://127.0.0.1:27017/quizTool").then(() => console.log("DB connection successful!")).catch(()=> console.log('DB not connected'));
+
+const connection = mongoose.connect(process.env.MONGO_URI).then(() => console.log("DB connection successful!")).catch(()=> console.log('DB not connected'));
 
 export {connection}
