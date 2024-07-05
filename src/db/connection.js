@@ -1,9 +1,7 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose";
+import 'dotenv/config';
 
-mongoose.connect(process.env.DATABASE_URL).then(()=>{
-    console.log("Connected Successfully")
-}).catch(()=>{
-    console.log("Database not get Connected")
-})
 
-export default mongoose;
+const connection = mongoose.connect(process.env.MONGO_URI).then(() => console.log("DB connection successful!")).catch(()=> console.log('DB not connected'));
+
+export {connection}

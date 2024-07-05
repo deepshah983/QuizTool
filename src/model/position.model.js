@@ -1,4 +1,4 @@
-import mongoose from "../db/connection.js";
+import mongoose from "mongoose";
 
 const positionSchema = new mongoose.Schema({
     name:{
