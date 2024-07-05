@@ -1,17 +1,18 @@
 import express from 'express'
-
-// require('dotenv').config()
+import 'dotenv/config'
+import mongoose from './db/connection.js'
+import { positionRoute } from './routes/position.route.js'
 
 const app = express()
 
-const port = 4000
+app.use(express.json())
 
-app.get("/",(req,res)=>{
-    res.status(200).json({
-        msg:"Ok"
-    })
-})
+app.use('/api',positionRoute)
 
-app.listen(4000,()=>{
+const port = process.env.PORT || 5000
+
+
+
+app.listen(port,()=>{
     console.log(`Project run on this port ${port}`)
 })
